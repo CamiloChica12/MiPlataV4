@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel — Mi Plata</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+  <aside class="sidebar">
+    <div class="logo">Mi Plata</div>
+    <nav>
+      <button class="nav-item active" data-section="cuentas">Mis cuentas</button>
+      <button class="nav-item" data-section="consignar">Consignar</button>
+      <button class="nav-item" data-section="retirar">Retirar</button>
+      <button class="nav-item" data-section="comprar">Comprar a cuotas</button>
+      <button class="nav-item" data-section="transferir">Transferir</button>
+      <button class="nav-item" data-section="movimientos">Movimientos</button>
+      <button class="nav-item" data-section="perfil">Perfil</button>
+    </nav>
+    <button class="btn btn-outline btn-block" id="btnSalir" style="color:#fff;border-color:rgba(255,255,255,0.35)">Cerrar sesión</button>
+  </aside>
+
+  <main class="dashboard-content">
+    <div id="mensaje" class="form-message"></div>
+
+    <!-- ===================== MIS CUENTAS ===================== -->
+    <section id="sec-cuentas" class="panel-section">
+      <h2 id="saludo">Bienvenido</h2>
+      <p class="subtitle">Estos son tus productos con Mi Plata.</p>
+
+      <div id="listaCuentas" class="account-grid"></div>
+
+      <p class="subtitle" style="margin-bottom:10px;">Abrir un nuevo producto</p>
+      <div class="open-account-actions">
+        <button class="btn btn-outline" id="btnAbrirAhorros">+ Cuenta de ahorros</button>
+        <button class="btn btn-outline" id="btnAbrirCorriente">+ Cuenta corriente</button>
+        <button class="btn btn-outline" id="btnAbrirTarjeta">+ Tarjeta de crédito</button>
+      </div>
+    </section>
+
+    <!-- ===================== CONSIGNAR ===================== -->
+    <section id="sec-consignar" class="panel-section hidden">
+      <h2>Consignar dinero</h2>
+      <p class="subtitle">En una tarjeta de crédito, "consignar" es abonar a tu deuda.</p>
+      <div class="simple-card">
+        <form id="formConsignar">
+          <div class="field">
+            <label for="cuentaConsignar">Cuenta</label>
+            <select id="cuentaConsignar" required></select>
+          </div>
+          <div class="field">
+            <label for="montoConsignar">Monto</label>
+            <input type="number" id="montoConsignar" min="1" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Consignar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================== RETIRAR ===================== -->
+    <section id="sec-retirar" class="panel-section hidden">
+      <h2>Retirar dinero</h2>
+      <p class="subtitle">Disponible para cuentas de ahorros y corriente.</p>
+      <div class="simple-card">
+        <form id="formRetirar">
+          <div class="field">
+            <label for="cuentaRetirar">Cuenta</label>
+            <select id="cuentaRetirar" required></select>
+          </div>
+          <div class="field">
+            <label for="montoRetirar">Monto</label>
+            <input type="number" id="montoRetirar" min="1" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Retirar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================== COMPRAR A CUOTAS (TARJETA) ===================== -->
+    <section id="sec-comprar" class="panel-section hidden">
+      <h2>Comprar a cuotas</h2>
+      <p class="subtitle">Solo con tarjeta de crédito. La tasa depende del número de cuotas.</p>
+      <div class="simple-card">
+        <form id="formComprar">
+          <div class="field">
+            <label for="tarjetaComprar">Tarjeta</label>
+            <select id="tarjetaComprar" required></select>
+          </div>
+          <div class="field">
+            <label for="montoComprar">Monto de la compra</label>
+            <input type="number" id="montoComprar" min="1" required>
+          </div>
+          <div class="field">
+            <label for="cuotasComprar">Número de cuotas</label>
+            <input type="number" id="cuotasComprar" min="1" max="36" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Comprar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================== TRANSFERIR ===================== -->
+    <section id="sec-transferir" class="panel-section hidden">
+      <h2>Transferir</h2>
+      <p class="subtitle">A otro producto tuyo (de distinto tipo) o a la cuenta de otra persona.</p>
+      <div class="simple-card">
+        <form id="formTransferir">
+          <div class="field">
+            <label for="cuentaOrigen">Cuenta origen</label>
+            <select id="cuentaOrigen" required></select>
+          </div>
+          <div class="field">
+            <label for="cuentaDestino">Número de cuenta destino</label>
+            <input type="text" id="cuentaDestino" placeholder="Ej: AH-4821" required>
+          </div>
+          <div class="field">
+            <label for="montoTransferir">Monto</label>
+            <input type="number" id="montoTransferir" min="1" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Transferir</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================== MOVIMIENTOS ===================== -->
+    <section id="sec-movimientos" class="panel-section hidden">
+      <h2>Movimientos</h2>
+      <p class="subtitle">Selecciona una cuenta para ver su historial.</p>
+      <div class="simple-card" style="max-width:640px;">
+        <div class="field">
+          <label for="cuentaMovimientos">Cuenta</label>
+          <select id="cuentaMovimientos"></select>
+        </div>
+      </div>
+      <div id="tablaMovimientosWrap" style="max-width:640px;margin-top:16px;"></div>
+    </section>
+
+    <!-- ===================== PERFIL ===================== -->
+    <section id="sec-perfil" class="panel-section hidden">
+      <h2>Mi perfil</h2>
+      <p class="subtitle">Actualiza tus datos o cambia tu contraseña.</p>
+
+      <div class="simple-card" style="margin-bottom:20px;">
+        <form id="formPerfil">
+          <div class="field">
+            <label for="perfilNombre">Nombre completo</label>
+            <input type="text" id="perfilNombre" required>
+          </div>
+          <div class="field">
+            <label for="perfilCelular">Celular</label>
+            <input type="tel" id="perfilCelular" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Guardar cambios</button>
+        </form>
+      </div>
+
+      <div class="simple-card">
+        <form id="formClave">
+          <div class="field">
+            <label for="claveActual">Contraseña actual</label>
+            <input type="password" id="claveActual" required>
+          </div>
+          <div class="field">
+            <label for="claveNueva">Nueva contraseña</label>
+            <input type="password" id="claveNueva" required>
+          </div>
+          <div class="field">
+            <label for="claveConfirmar">Confirmar nueva contraseña</label>
+            <input type="password" id="claveConfirmar" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Cambiar contraseña</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script type="module" src="js/app-panel.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registrarse — Mi Plata</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="index.html">Mi Plata</a>
+  <nav class="nav-actions">
+    <a class="btn btn-outline" href="login.html">Iniciar sesión</a>
+  </nav>
+</header>
+
+<div class="auth-wrap">
+  <div class="auth-card">
+    <h1>Crea tu cuenta</h1>
+    <p class="subtitle">Solo te toma un par de minutos.</p>
+
+    <div id="mensaje" class="form-message"></div>
+
+    <form id="formRegistro" novalidate>
+      <div class="field">
+        <label for="identificacion">Número de identificación</label>
+        <input type="text" id="identificacion" required>
+      </div>
+      <div class="field">
+        <label for="nombreCompleto">Nombre completo</label>
+        <input type="text" id="nombreCompleto" required>
+      </div>
+      <div class="field">
+        <label for="celular">Número de celular</label>
+        <input type="tel" id="celular" required>
+      </div>
+      <div class="field">
+        <label for="usuario">Nombre de usuario</label>
+        <input type="text" id="usuario" required>
+      </div>
+      <div class="field">
+        <label for="contrasena">Contraseña</label>
+        <input type="password" id="contrasena" required>
+      </div>
+      <div class="field">
+        <label for="confirmarContrasena">Repetir contraseña</label>
+        <input type="password" id="confirmarContrasena" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+    </form>
+
+    <p class="auth-footer">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+  </div>
+</div>
+
+<script type="module" src="js/app-auth.js"></script>
+</body>
+</html>
