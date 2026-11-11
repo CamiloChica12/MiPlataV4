@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iniciar sesión — Mi Plata</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="index.html">Mi Plata</a>
+  <nav class="nav-actions">
+    <a class="btn btn-primary" href="registro.html">Registrarse</a>
+  </nav>
+</header>
+
+<main class="auth-wrap auth-layout">
+  <aside class="auth-aside">
+    <a class="auth-brand" href="index.html"><span class="brand-mark">M</span> Mi Plata</a>
+    <div class="auth-aside-content">
+      <span class="eyebrow">TU DINERO, SIEMPRE CONTIGO</span>
+      <h2>Todo tu mundo financiero, en un solo lugar.</h2>
+      <p>Consulta tus productos, revisa tus movimientos y mantén el control de tus finanzas desde una experiencia simple y segura.</p>
+      <div class="auth-floating-card"><span>MI PLATA · DIGITAL</span><strong>Tu plata,<br>en movimiento.</strong><div class="auth-card-bottom"><span>EXPERIENCIA FINANCIERA</span><b>✦</b></div></div>
+      <div class="auth-trust"><span class="trust-dot"></span> Una experiencia pensada para ti</div>
+    </div>
+  </aside>
+  <section class="auth-form-side">
+    <div class="auth-card auth-card-wide">
+      <div class="auth-mobile-brand"><span class="brand-mark">M</span> Mi Plata</div>
+      <span class="eyebrow">TU DINERO, SIEMPRE CONTIGO</span>
+      <h1>Bienvenido de nuevo</h1><p class="subtitle">Ingresa tus datos para continuar.</p>
+      <div id="mensaje" class="form-message"></div>
+      <form id="formLogin" novalidate>
+      <div class="field"><label for="usuario">Usuario</label><input type="text" id="usuario" autocomplete="username" placeholder="Tu nombre de usuario" required></div>
+      <div class="field"><label for="contrasena">Contraseña</label><input type="password" id="contrasena" autocomplete="current-password" placeholder="Ingresa tu contraseña" required></div>
+      <button type="submit" class="btn btn-primary btn-block">Ingresar a mi cuenta <span>→</span></button>
+      </form>
+      <p class="auth-footer">¿Aún no tienes cuenta? <a href="registro.html">Regístrate</a></p>
+      <p class="auth-legal">Al continuar, estás utilizando el entorno académico de Mi Plata.</p>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="js/app-auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administración — Mi Plata</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+  <aside class="sidebar">
+    <div class="logo">Mi Plata · Admin</div>
+    <nav>
+      <button class="nav-item active">Usuarios</button>
+    </nav>
+    <button class="btn btn-outline btn-block" id="btnSalir" style="color:#fff;border-color:rgba(255,255,255,0.35)">Cerrar sesión</button>
+  </aside>
+
+  <main class="dashboard-content">
+    <div id="mensaje" class="form-message"></div>
+
+    <h2 id="saludo">Gestión de usuarios</h2>
+    <p class="subtitle">Agrega, edita, elimina o desbloquea clientes del sistema.</p>
+
+    <div style="display:flex;justify-content:flex-end;margin-bottom:16px;">
+      <button class="btn btn-primary" id="btnNuevo">+ Nuevo cliente</button>
+    </div>
+
+    <!-- Formulario (sirve tanto para crear como para editar) -->
+    <div class="simple-card hidden" id="tarjetaFormulario" style="max-width:100%;margin-bottom:28px;">
+      <h3 id="tituloFormulario" style="margin-top:0;color:var(--navy);">Nuevo cliente</h3>
+      <form id="formCliente">
+        <input type="hidden" id="usuarioOriginal">
+        <div class="field">
+          <label for="fIdentificacion">Identificación</label>
+          <input type="text" id="fIdentificacion" required>
+        </div>
+        <div class="field">
+          <label for="fNombre">Nombre completo</label>
+          <input type="text" id="fNombre" required>
+        </div>
+        <div class="field">
+          <label for="fCelular">Celular</label>
+          <input type="tel" id="fCelular" required>
+        </div>
+        <div class="field">
+          <label for="fUsuario">Usuario</label>
+          <input type="text" id="fUsuario" required>
+        </div>
+        <div class="field" id="campoContrasena">
+          <label for="fContrasena">Contraseña</label>
+          <input type="password" id="fContrasena">
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-outline" id="btnCancelar">Cancelar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Identificación</th>
+          <th>Nombre</th>
+          <th>Usuario</th>
+          <th>Celular</th>
+          <th>Estado</th>
+          <th>Cuentas</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="cuerpoTabla"></tbody>
+    </table>
+    </div>
+  </main>
+</div>
+
+<script type="module" src="js/app-admin.js"></script>
+</body>
+</html>
